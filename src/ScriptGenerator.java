@@ -34,10 +34,7 @@ public class ScriptGenerator {
      * @param args
      */
     public static void main(String[] args) {
-        Faker faker = new Faker(new Locale("es-MX"));
-        System.out.println(faker.lorem().fixedString(50));
-        System.out.println(faker.lorem().fixedString(50));
-        System.out.println(faker.chuckNorris().fact());
+
         try {
             PrintWriter siteWriter = new PrintWriter("sites_script.sql", "UTF-8");
             generateSiteQuery(siteWriter);
@@ -110,7 +107,7 @@ public class ScriptGenerator {
             int gender = faker.number().numberBetween(1, 4);
             int sbGender1 = faker.number().numberBetween(1, 8);
             int sbGender2 = faker.number().numberBetween(8, 14);
-            String biography = faker.chuckNorris().fact().concat(" ").concat(faker.beer().name());
+            String biography = faker.lorem().fixedString(100);
 
             //Queries
             printWriter.println("INSERT INTO public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) " + "VALUES (" + (user_seq_artist + i) + ",'pbkdf2_sha256$24000$2Pi6CjMjgA7D$NtEcGcuFbiuWTJSVGl+oHo2pvK6zzJTJTAd6sfQD8j4=', '2017-03-10 19:53:46.474341', true, '" + name + "', '', '', '" + name + "@contact" + ".com', true, true, '2017-03-10 19:50:52.412073');");
