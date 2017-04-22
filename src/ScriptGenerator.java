@@ -12,10 +12,10 @@ public class ScriptGenerator {
     /**
      * PK consecutive
      */
-    private static int user_seq_site = 28;
+    private static int user_seq_site = 38;
     private static int event_seq_site = 4;
     private static int site_seq_site = 5;
-    private static int artist_seq_artist = 19;
+    private static int artist_seq_artist = 23;
 
     /**
      * Customizable number query results
@@ -26,7 +26,7 @@ public class ScriptGenerator {
     /**
      * Calculated
      */
-    private static int user_seq_artist = user_seq_site + num_sites + 1;
+    private static int user_seq_artist = 38;
 
     /**
      * Main method that generates de SQL queries.
@@ -103,7 +103,7 @@ public class ScriptGenerator {
 
             //Artist
             String artistName = faker.artist().name();
-            String phoneNumber = faker.phoneNumber().phoneNumber();
+            long phoneNumber = faker.number().randomNumber(9, true);
             int gender = faker.number().numberBetween(1, 4);
             int sbGender1 = faker.number().numberBetween(1, 8);
             int sbGender2 = faker.number().numberBetween(8, 14);
